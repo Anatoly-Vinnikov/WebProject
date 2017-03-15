@@ -8,7 +8,7 @@ public class Logic {
 	int[] first, secondary, save, forReverse, forExtra, sum, reverseFirst, reverseSecondary, extraFirst, extraSecondary,
     forSolution, savedForSum1, savedForSum2, directCode, reverseCode, extraCode, solForCodes1, solForCodes2;
 Random rnd;
-int tmp, point1, point2, newPoint1, newPoint2, newPoint3, diff1, diff2, shiftEnd, shiftStart1, shiftStart2, maxIndexToBin;
+int tmp, point1, point2, newPoint1, newPoint2, newPoint3, diff1, diff2, shiftEnd, shiftStart1, shiftStart2, maxIndexToBin, counterToAns;
 char isSolution;
 boolean test1, test2, isCorrect, fl1, fl2, isNeg1, isNeg2, secondMax, isAnsIndexNeg, isNormalized;
 ArrayList<Integer> bin1, bin2, maxIndex;
@@ -140,9 +140,13 @@ public String generate(String id) {
         answer += "@";
         solutionForFloatSumInReverse();    
         answer += "@";
-        if (newPoint3 == 0)
+        if (newPoint3 == 0) {
             answer += "0.";
-        for (int i = 0; i < 8; i++)
+            counterToAns = 0;
+        }
+        else
+        	counterToAns = newPoint3 - 1;
+        for (int i = counterToAns; i < 8; i++)//from 0
     	{
             answer += sum[i];
     		if (i == newPoint3 - 1)
@@ -177,9 +181,13 @@ public String generate(String id) {
         answer += "@";
         solutionForFloatSumInExtra();    
         answer += "@";
-        if (newPoint3 == 0)
+        if (newPoint3 == 0) {
             answer += "0.";
-        for (int i = 0; i < 8; i++)
+            counterToAns = 0;
+        }
+        else
+        	counterToAns = newPoint3 - 1;
+        for (int i = counterToAns; i < 8; i++)//from 0
     	{
             answer += sum[i];
     		if (i == newPoint3 - 1)

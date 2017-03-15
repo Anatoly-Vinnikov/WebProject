@@ -15,6 +15,7 @@ public class WebProjectServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {		
 		resp.setContentType("text/html; charset=windows-1251");
         PrintWriter out = resp.getWriter();
+        resp.setHeader("Access-Control-Allow-Origin", "*");
 
         String[] request = req.getQueryString().split("&");
         switch(request[0]) {
