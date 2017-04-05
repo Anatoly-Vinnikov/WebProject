@@ -11,6 +11,7 @@ public class WebProjectServlet extends HttpServlet {
 	Logic codesAndSum = new Logic();
 	Multiplication multiplication = new Multiplication();
 	NumberSystems numberSystems = new NumberSystems();
+	Lecture lecture = new Lecture();
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {		
 		resp.setContentType("text/html; charset=windows-1251");
@@ -27,6 +28,9 @@ public class WebProjectServlet extends HttpServlet {
         	break;
         case "2":
         	out.print(numberSystems.generate(request[1]));
+        	break;
+        case "3":
+        	out.print(lecture.getLecture(request[1]));
         	break;
         }
 	}
