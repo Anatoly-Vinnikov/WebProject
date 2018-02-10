@@ -8,7 +8,7 @@ public class Logic {
 	int[] first, secondary, save, forReverse, forExtra, sum, reverseFirst, reverseSecondary, extraFirst, extraSecondary,
     forSolution, savedForSum1, savedForSum2, directCode, reverseCode, extraCode, solForCodes1, solForCodes2;
 Random rnd;
-int tmp, point1, point2, newPoint1, newPoint2, newPoint3, diff1, diff2, shiftEnd, shiftStart1, shiftStart2, maxIndexToBin, counterToAns;
+int tmp, point1, point2, newPoint1, newPoint2, newPoint3, diff1, diff2, shiftEnd, shiftStart1, shiftStart2, maxIndexToBin, counterToAns, counterToAns2;
 char isSolution;
 boolean test1, test2, isCorrect, fl1, fl2, isNeg1, isNeg2, secondMax, isAnsIndexNeg, isNormalized;
 ArrayList<Integer> bin1, bin2, maxIndex;
@@ -146,7 +146,13 @@ public String generate(String id) {
         }
         else
         	counterToAns = newPoint3 - 1;
-        for (int i = counterToAns; i < 8; i++)//from 0
+        for (int i = 7; i >= 0; i--) {
+        	if (sum[i] == 1) {
+                counterToAns2 = i;
+                break;
+        	}
+        }
+        for (int i = counterToAns; i <= counterToAns2; i++)//from 0 to 8, <
     	{
             answer += sum[i];
     		if (i == newPoint3 - 1)
@@ -187,7 +193,13 @@ public String generate(String id) {
         }
         else
         	counterToAns = newPoint3 - 1;
-        for (int i = counterToAns; i < 8; i++)//from 0
+        for (int i = 7; i >= 0; i--) {
+        	if (sum[i] == 1) {
+                counterToAns2 = i;
+                break;
+        	}
+        }
+        for (int i = counterToAns; i <= counterToAns2; i++)//from 0 to 8, <
     	{
             answer += sum[i];
     		if (i == newPoint3 - 1)
@@ -630,7 +642,7 @@ private void solutionForIntSumInReverse()
         for (int j = 0; j < 8; j++)
         	answer += reverseSecondary[j];
         answer += "\n";
-        for (int j = 0; j < 8; j++)
+        for (int j = 0; j < 16; j++)
         	answer += "-";
         answer += "\n";
 
@@ -703,7 +715,7 @@ private void solutionForIntSumInExtra()
         for (int j = 0; j < 8; j++)
         	answer += extraSecondary[j];
         answer += "\n";
-        for (int j = 0; j < 8; j++)
+        for (int j = 0; j < 16; j++)
         	answer += "-";
         answer += "\n";
 
@@ -769,7 +781,7 @@ private void solutionForFracSumInReverse()
             	answer += '.';
 		}
         answer += "\n";
-        for (int k = 0; k < 9; k++)
+        for (int k = 0; k < 18; k++)
         	answer += "-";
         answer += "\n";
 
@@ -864,7 +876,7 @@ private void solutionForFracSumInExtra()
             	answer += '.';
 		}
         answer += "\n";
-        for (int k = 0; k < 9; k++)
+        for (int k = 0; k < 18; k++)
         	answer += "-";
         answer += "\n";
 

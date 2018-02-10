@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.*;
 
 @SuppressWarnings("serial")
-public class WebProjectServlet extends HttpServlet {	
+public class HelloAppEngine extends HttpServlet {	
 
 	Logic codesAndSum = new Logic();
 	Multiplication multiplication = new Multiplication();

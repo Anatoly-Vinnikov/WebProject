@@ -21,7 +21,8 @@ public class NumberSystems {
 		 * 4: 4->2
 		 * 5: 8->2
 		 * 6: 16->2
-		 * 7: 10->N		 
+		 * 7: 10->2...(10->10 not needed)
+		 * ...20: 10->16
 		 * */
 		switch(ID){
 		case "0":
@@ -47,7 +48,46 @@ public class NumberSystems {
         	break;
 		case "7":     
 			GeneratorFrom_N_To_N_( 10, 2);
-        	break;				
+        	break;	
+case "8":     
+			GeneratorFrom_N_To_N_( 10, 3);
+        	break;
+case "9":     
+			GeneratorFrom_N_To_N_( 10, 4);
+        	break;
+case "10":     
+			GeneratorFrom_N_To_N_( 10, 5);
+        	break;
+case "11":     
+			GeneratorFrom_N_To_N_( 10, 6);
+        	break;
+case "12":     
+			GeneratorFrom_N_To_N_( 10, 7);
+        	break;
+case "13":     
+			GeneratorFrom_N_To_N_( 10, 8);
+        	break;
+case "14":     
+			GeneratorFrom_N_To_N_( 10, 9);
+        	break;
+case "15":     
+			GeneratorFrom_N_To_N_( 10, 11);
+        	break;
+case "16":     
+			GeneratorFrom_N_To_N_( 10, 12);
+        	break;
+case "17":     
+			GeneratorFrom_N_To_N_( 10, 13);
+        	break;
+case "18":     
+			GeneratorFrom_N_To_N_( 10, 14);
+        	break;
+case "19":     
+			GeneratorFrom_N_To_N_( 10, 15);
+        	break;
+case "20":     
+			GeneratorFrom_N_To_N_( 10, 16);
+        	break;			
 		default:
     		break;
 		}			
@@ -120,7 +160,6 @@ public class NumberSystems {
         //char userkey;
         boolean mark = true;
         int strlenint = integer.length, strlenfract = fractional.length;
-        int size;
 
 
 
@@ -262,7 +301,6 @@ public class NumberSystems {
 
         int  counter, degree = 0, colorKey = 0, help1 = 0, help2 = 0;
         char[] answer = new char[32];
-        float Help = 0;
 
         degree = (int)(Involution(Digits(number), 10, 1));//
 
@@ -400,8 +438,8 @@ public class NumberSystems {
             answer[j] = '0';
 
         answerToServer += ("-------------------------------------------------------------------\n");
-        answerToServer += ("| Основание системы счисления: " + CurrentNotation + " ");        
-        answerToServer += ("| Основание системы счисления: 2 |\n");
+        answerToServer += ("| Основание: " + CurrentNotation + " ");        
+        answerToServer += ("| Основание: 2 |\n");
         answerToServer += ("-------------------------------------------------------------------\n");
 
 
@@ -414,15 +452,15 @@ public class NumberSystems {
             FromDecimalTo_N_Int(i, 2, cur);
             size = cur.length;
 
-            if (size == DegreeOf2(CurrentNotation))
-            {
-                for (int k = 0; k < DegreeOf2(CurrentNotation); k++)
-                    answer[k] = cur[k];
-            }
-            else
-            {
-                for (int l = size; l > 0; l--)
-                    answer[DegreeOf2(CurrentNotation) - 2] = cur[size - l];
+            if (size == DegreeOf2(CurrentNotation)) 
+            { 
+            for (int k = 0; k < DegreeOf2(CurrentNotation); k++) 
+            answer[k] = cur[k]; 
+            } 
+            else 
+            { 
+            for (int l = size; l > 0; l--) 
+            answer[DegreeOf2(CurrentNotation) - 2] = cur[size - l]; 
             }
 
             for (int g = 0; g < 5 + DegreeOf2(CurrentNotation); g++)
@@ -688,9 +726,9 @@ public class NumberSystems {
        while(fractValue[LengthOfFract] != '\0')
        	LengthOfFract++;
        
-       answerToServer += ("\nВоспользуйтесь таблицей соответсвия значений цифр " + CurrentNotation + "-ой системы счисления, со значениями в 2-ой системе счисления.\n\n");
+       answerToServer += ("Воспользуйтесь таблицей соответсвия значений цифр " + CurrentNotation + "-ой системы счисления, со значениями в 2-ой системе счисления.\n\n");
        Table(CurrentNotation);
-       answerToServer += ("\n");
+       //answerToServer += ("\n");
        
        for (int z = 0; z < LengthOfInt; z++){
            char FagsStringToChar = intValue[z];
@@ -833,7 +871,7 @@ public class NumberSystems {
     	   answercounter++;
        }
        
-       answerToServer += "@";       
+       //answerToServer += "@";       
    }
 
     void GeneratorFrom_N_To_N_(int CurrentNotation, int FutureNotation)
@@ -843,8 +881,6 @@ public class NumberSystems {
     	answerToServer = "";
     	
         int cur;
-        
-        boolean mark = false;
 
         if (CurrentNotation != 10)
         	answerToServer += "Переведите число: ";
